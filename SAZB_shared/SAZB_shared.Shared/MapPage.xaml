@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:esriUI="clr-namespace:Esri.ArcGISRuntime.Xamarin.Forms;assembly=Esri.ArcGISRuntime.Xamarin.Forms"
+			 xmlns:local="clr-namespace:SAZB_shared.Shared;assembly=SAZB_shared"
+             x:Class="SAZB_shared.MapPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ShowLayersTbItem" Text="Слої"
+                 Order="Default"
+                 Priority="0"
+                     />
+        <ToolbarItem x:Name="ShowSearchForm" Text="Пошук"
+                 Order="Default"
+                 Priority="0"
+                     />
+    </ContentPage.ToolbarItems>
+	<!--<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:MapViewModel x:Key="MapViewModel" />
+		</ResourceDictionary>
+	</ContentPage.Resources>-->
+	<Grid>
+		<!--<esriUI:MapView Map="{Binding Map, Source={StaticResource MapViewModel}}" />-->
+        <esriUI:MapView x:Name ="mapViev" Map="{Binding Path=Map}" />
+	</Grid>
+</ContentPage>

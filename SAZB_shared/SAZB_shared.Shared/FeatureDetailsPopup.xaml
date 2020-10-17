@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="SAZB_shared.FeatureDetailsPopup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+        <StackLayout x:Name="stackLayout" Margin="12"
+                     Padding="24"
+                     BackgroundColor="White"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <ListView HorizontalOptions="Center" 
+                                  VerticalOptions="Center" 
+                                  x:Name="LayersView"
+                                   SeparatorVisibility="Default" SelectionMode="None"
+                                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                    <TextCell Text="{Binding Key}" Detail="{Binding Value}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        <Button x:Name="ok_button" Text="Ok" Clicked="Ok_button_Clicked"></Button>
+        </StackLayout>
+</pages:PopupPage>

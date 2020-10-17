@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="SAZB_shared.SearchPage">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <StackLayout x:Name="stackLayout" Margin="12"
+                     Padding="24"
+                     BackgroundColor="White"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+        <SearchBar x:Name="SearcCN" Placeholder="Кадастровий номер" Keyboard="Numeric"></SearchBar>
+        <SearchBar x:Name="SearcOwner" Placeholder="Власник"></SearchBar>
+        <SearchBar x:Name="SearchField" Placeholder="Поле"></SearchBar>
+        <SearchBar x:Name="SearcLandlord" Placeholder="Орендодавець"></SearchBar>
+        <ListView x:Name="searchResults" HorizontalOptions="Center" Header="Результати пошуку">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding CadNumber }" Detail="{Binding Square}" CommandParameter="{Binding .}" Tapped="On_cell_tapped"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Назад" Clicked="On_back_cliked"/>
+    </StackLayout>
+</pages:PopupPage>
